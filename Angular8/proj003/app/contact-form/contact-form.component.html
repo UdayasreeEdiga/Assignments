@@ -1,0 +1,66 @@
+<section class="container p-5">
+    <h3>{{isNew? "Add" :"Edit"}}Contact</h3>
+
+    <form class="form" #f="ngForm">
+        <div>
+            <label>ContactId</label>
+            <input type="number" name="cid" [(ngModel)]="contact.contactID" class="form-control"
+            [readonly]="!isNew" required="required" min="100" #cid="ngModel"/>
+             <ol *ngIf="(cid.touched || cid.dirty)&& cid.invalid">
+                 <li *ngIf="cid.errors.required"> Cannot be left blank</li>
+                 <li *ngIf="cid.errors.min">Cannot be more than 100</li>
+             </ol>
+        </div>
+        <div>
+            <label>FirstName</label>
+            <input type="text" name="fnm" [(ngModel)]="contact.firstName" class="form-control" required #fnm="ngModel" minlenght="5" />
+            <ol *ngIf="(fnm.touched || fnm.dirty) && fnm.invalid">
+                <li *ngIf="fnm.errors.required"> Can not be left blank</li>
+                <li *ngIf="fnm.errors.minlength">can not be less than 5characters</li>
+            </ol>
+        </div>
+        <div>
+            <label>Last Name</label>
+            <input type="text" name="lnm" [(ngModel)]="contact.lastName" class="form-control" required #lnm="ngModel"/>
+            <ol *ngIf="(lnm.touched || lnm.dirty) && lnm.invalid">
+                <li *ngIf="lnm.errors.required"> Can not be left blank</li>
+            </ol>
+        </div>
+        <div>
+            <label>Mobile Number</label>
+            <input type="number" name="num" [(ngModel)]="contact.mobileNumber" class="form-control" required #num="ngModel" maxlength="10" />
+            <ol *ngIf="(num.touched || num.dirty)&& num.invalid">
+                <li *ngIf="fnm.errors.required"> Can not be left blank</li>
+                <li *ngIf="fnm.errors.minlength">can not be more than 10</li>  
+            </ol>   
+        </div>
+        <div>
+            <label>Mail Id</label>
+            <input type="email" name="mail" [(ngModel)]="contact.mailId" class="form-control" required #mail="ngModel" />
+            <ol *ngIf="(mail.touched || mail.dirty)&& mail.invalid">
+                <li *ngIf="fnm.errors.required"> Can not be left blank</li>
+                 
+            </ol>    
+        </div>
+        <div>
+            <label>Organization</label>
+            <input type="text" name="org" [(ngModel)]="contact.organization" class="form-control" required #org="ngModel"  />
+            <ol *ngIf="(org.touched || org.dirty)&& org.invalid">
+                <li *ngIf="fnm.errors.required"> Can not be left blank</li>
+             </ol>   
+                 
+        </div>
+        <div>
+            <label>Date of Birth</label>
+            <input type="date" name="dob" [(ngModel)]="contact.dobStr" (change)="dobUpdate()" class="form-control" required #dob="ngModel"  />
+            <ol *ngIf="(dob.touched || dob.dirty)&& dob.invalid">
+                <li *ngIf="dob.errors.required"> Can not be left blank</li>
+             </ol>                     
+        </div>
+        <div class="text-right">
+            <button type="button" name="btnSave" class="btn btn-primary"
+             [disabled]="f.invalid"
+            (click)="save()">ADD</button>
+        </div>
+    </form>
+</section>
