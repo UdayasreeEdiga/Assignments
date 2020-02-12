@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>prog02</title>
+</head>
+<body>
+    <img [src]="logo"/>
+    <h2> UserName : {{userName}}</h2>
+    <br>
+    <h2> JobTitle: {{jobTitle}}</h2>
+    <br>
+    <h3>Salary :{{salary}}</h3>
+    <br>
+    <h3>AnnualSalary: {{ getAnnualSalary()}}</h3>
+    <br>
+    Enter your name:
+    <input type="text" placeholder="type your name" [(ngModel)]="userName">
+    <br>
+    <button (click)="greetUser()" >Greet</button>
+  
+</body>
+</html>
