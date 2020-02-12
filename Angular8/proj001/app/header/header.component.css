@@ -1,0 +1,14 @@
+header {
+    background-color: dimgray;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 15px;
+}
+header>div>img {
+    width: 50px;
+}
+
+header>div>img.header>div>h3 {
+    display:inline-block
+
+}

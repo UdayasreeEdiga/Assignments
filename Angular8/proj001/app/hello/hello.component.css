@@ -1,0 +1,13 @@
+section {
+    background-color:cyan;
+    padding: 30px;
+}
+
+section div:first-child {
+    border-bottom:1px  darkorchid;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+section div:last-child {
+    font-weight: bolder;
+}
